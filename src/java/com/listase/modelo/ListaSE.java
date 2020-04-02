@@ -133,51 +133,48 @@ public class ListaSE implements Serializable{
         
     }
     
-    public void invertirLista(String invertirLista)
+    public void invertirLista()
     {
-	ListaSE listaTemporal = new ListaSE();
-
-	if(cabeza !=null)
-	{
-            Nodo ayudante= cabeza;
-           while(ayudante!=null)
-            {
-			listaTemporal.adicionarNodoAlInicio(ayudante.getDato());
-			ayudante= ayudante.getSiguiente();		
-	    }
-        cabeza= listaTemporal.getCabeza();
-        }
+      ListaSE listaTemporal = new ListaSE();
+      if(cabeza != null)
+      {
+          Nodo ayudante = cabeza;
+          while(ayudante !=null)
+          {
+              listaTemporal.adicionarNodoAlInicio(ayudante.getDato());
+              ayudante.getSiguiente();
+          }
+      cabeza = listaTemporal.getCabeza();
+      }
     }
     
     public int contarNiñas()
     {
-        int contNiñas=0;
-        Nodo temp=cabeza;
-        
-        if(temp.getSiguiente()!=null)
+        int contNiñas = 0;
+          Nodo temp = cabeza;
+          if(temp.getSiguiente()!=null)
+          {
+         while(temp.getDato().getGenero().equals("Femenino"))
         {
-            while(temp.getDato().getGenero().equals("Femenino"))
-            {
-                contNiñas+=1;
-            }
+            contNiñas +=1;
         }
-        return contNiñas;
+       } return contNiñas;
     }
     
-     public int contarNiños()
-    {
-        int contNiños=0;
-        Nodo temp=cabeza;
-        
-        if(temp.getSiguiente()!=null)
-        {
-            while(temp.getDato().getGenero().equals("Masculino"))
-            {
-                contNiños+=1;
-            }
-        }
-        return contNiños;
-    }
+    public int contarNiños()
+      {
+          int contNiños = 0;
+          Nodo temp = cabeza;
+          if(temp.getSiguiente()!=null)    
+          {
+              while(temp.getDato().getGenero().equals("Masculino"))
+              {
+                  contNiños +=1;
+              }
+          }
+          return contNiños;
+      
+      }
     
     public Object getDato() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

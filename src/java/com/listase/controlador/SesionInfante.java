@@ -262,4 +262,16 @@ public class SesionInfante implements Serializable {
             textoVista = "Tabla";
         }
     }
+    public void invertirLista()
+    {
+      this.listaInfantes.invertirLista();
+      infante = this.listaInfantes.getCabeza().getDato();
+    }
+    
+    
+    
+    
+    private void add(ListaSE listaTemporal) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
