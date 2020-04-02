@@ -37,8 +37,9 @@ public class SesionInfante implements Serializable {
     private boolean deshabilitarFormulario=true;
     private Nodo ayudante;   
     private String textoVista="Gráfico";
-    
+    private List listaTemporal;
     private List listadoInfantes;
+    private String invertirLista="";
     
     private DefaultDiagramModel model;
     
@@ -58,9 +59,12 @@ public class SesionInfante implements Serializable {
         listaInfantes.adicionarNodo(new Infante("Martina",(short) 3, (byte)1));
         listaInfantes.adicionarNodoAlInicio(new Infante("Mariana",(short) 4, (byte)5));
         ayudante = listaInfantes.getCabeza();
-        infante = ayudante.getDato();     
+        infante = ayudante.getDato(); 
         //Me llena el objeto List para la tabla
         listadoInfantes = listaInfantes.obtenerListaInfantes();
+        
+        listaTemporal=listaInfantes.adicionarNodoAlInicio();
+        
         
         model = new DefaultDiagramModel();
         //Pude tener n flechas
@@ -175,6 +179,22 @@ public class SesionInfante implements Serializable {
     public void setInfante(Infante infante) {
         this.infante = infante;
     }
+
+    public List getListaTemporal() {
+        return listaTemporal;
+    }
+
+    public void setListaTemporal(List listaTemporal) {
+        this.listaTemporal = listaTemporal;
+    }
+
+    public String getInvertirLista() {
+        return invertirLista;
+    }
+
+    public void setInvertirLista(String invertirLista) {
+        this.invertirLista = invertirLista;
+    }
     
     
     
@@ -242,5 +262,4 @@ public class SesionInfante implements Serializable {
             textoVista = "Tabla";
         }
     }
-    
 }

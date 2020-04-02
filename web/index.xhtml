@@ -5,7 +5,7 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Lista Infantes</title>
         <style type="text/css">
     .ui-diagram-element {   
         width:14em; 
@@ -63,13 +63,15 @@
                         <p:commandButton value="Nuevo" update="frmInfante" action="#{sesionInfante.habilitarFormulario()}"
                                          disabled="#{!sesionInfante.deshabilitarFormulario}"
                                          />
-                        <p:panelGrid columns="3">
+                        <p:panelGrid columns="4">
                             <p:commandButton value="Primero" action="#{sesionInfante.irPrimero()}" 
                                               update="frmInfante"/>
                             <p:commandButton value="Siguiente" action="#{sesionInfante.irSiguiente()}"
                                              update="frmInfante"/>       
                             <p:commandButton value="Último" action="#{sesionInfante.irUltimo()}" 
-                                             update="frmInfante"/>                           
+                                             update="frmInfante"/>
+                            <p:commandButton value="Invertir" action="#{sesionInfante.invertirLista()}"
+                                             update="frmInfante"/>
                             
                             
                             
@@ -99,6 +101,16 @@
                                     <p:outputLabel value="Edad"/>
                                 </f:facet>
                                 <p:outputLabel value="#{inf.edad}"/>
+                            </p:column>
+                        </p:dataTable>
+                        
+                        
+                        <p:dataTable rendered="#{sesionInfante.textoVista=='Gráfico'}"> 
+                            <p:column>
+                                <f:facet name="header">
+                                    <p:outputLabel value="Número de Niños por genero"/>
+                                </f:facet>
+                                <p:outputLabel value="#{inf.genero}"/>
                             </p:column>
                         </p:dataTable>
                         

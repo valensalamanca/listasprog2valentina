@@ -34,6 +34,14 @@ public class Nodo implements Serializable{
     public void setSiguiente(Nodo siguiente) {
         this.siguiente = siguiente;
     }
+
+    public Object getAnterior() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    Nodo getCabeza() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
 }

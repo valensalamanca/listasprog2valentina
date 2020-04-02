@@ -16,6 +16,7 @@ import java.util.List;
 public class ListaSE implements Serializable{
     private Nodo cabeza;
 
+
     public ListaSE() {
     }
 
@@ -26,7 +27,7 @@ public class ListaSE implements Serializable{
     public void setCabeza(Nodo cabeza) {
         this.cabeza = cabeza;
     }
-    
+
     public void adicionarNodo(Infante infante)
     {
         if(cabeza ==null)
@@ -107,7 +108,7 @@ public class ListaSE implements Serializable{
     }
     
     
-     public List obtenerListaInfantes()
+    public List obtenerListaInfantes()
     {
         List<Infante> listado = new ArrayList<>();
         //Un método recursivo que recoora mis infantes y que sacando la
@@ -130,6 +131,60 @@ public class ListaSE implements Serializable{
             }            
         }
         
+    }
+    
+    public void invertirLista(String invertirLista)
+    {
+	ListaSE listaTemporal = new ListaSE();
+
+	if(cabeza !=null)
+	{
+            Nodo ayudante= cabeza;
+           while(ayudante!=null)
+            {
+			listaTemporal.adicionarNodoAlInicio(ayudante.getDato());
+			ayudante= ayudante.getSiguiente();		
+	    }
+        cabeza= listaTemporal.getCabeza();
+        }
+    }
+    
+    public int contarNiñas()
+    {
+        int contNiñas=0;
+        Nodo temp=cabeza;
+        
+        if(temp.getSiguiente()!=null)
+        {
+            while(temp.getDato().getGenero().equals("Femenino"))
+            {
+                contNiñas+=1;
+            }
+        }
+        return contNiñas;
+    }
+    
+     public int contarNiños()
+    {
+        int contNiños=0;
+        Nodo temp=cabeza;
+        
+        if(temp.getSiguiente()!=null)
+        {
+            while(temp.getDato().getGenero().equals("Masculino"))
+            {
+                contNiños+=1;
+            }
+        }
+        return contNiños;
+    }
+    
+    public Object getDato() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public List adicionarNodoAlInicio() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
